@@ -10,16 +10,35 @@ $ python3 execute_kernels.py
 
 # DATASET
 
-This directory contains all the kernels in both of their versions: c and c++.
+This directory contains all the kernels we used in both of their versions c and c++ (if the c++ version exists).
+
+All the programs you can find here are from the [Computation Kernel Dataset](https://github.com/HPCCS/Computation-Kernel-Dataset) and [TheAlgorithms/C](https://github.com/TheAlgorithms/C) repositories.
 
 # LLVM-Tracer
 
 We did **not** make this tool. The directory of it is a submodule that redirects you to its actual repository.
 
-## LLVM_files
-
-This directory contains the files we made in order to get the dynamic traces of each kernel.
+The files we developed or updated are located in the [playground/](workspace/LLVM-Tracer/playground) directory:
+- get_dynamic_traces.py
+- Makefile
+- Makefile.tracer
 
 # gem5-aladdin
 
 We did **not** make this tool. The directory of it contains a reference to the actual repository. We couldn't make a submodule of this one like we made with the LLVM-Tracer tool.
+
+# PARIS
+
+We did **not** make this tool. However, we used all the features this tool gave us.
+
+You can find the files we created using this tool in the [PARIS_files/](workspace/PARIS_files) directory.
+
+# PARIS_files
+
+This is a directory that contains all the processed data from PARIS. Here you will find:
+- deadloc results.
+- repeatadd results.
+- 4instype results.
+- Scripts to make this tool work for all the kernels automatically.
+- deadloc ratio results.
+- combined features results.
