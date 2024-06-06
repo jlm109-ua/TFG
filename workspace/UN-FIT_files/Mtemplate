@@ -1,0 +1,54 @@
+ARM_TOOLCHAIN_DIR = /usr/bin/gcc-arm-none-eabi-9-2020-q2-update/bin/
+#~/Linaro/gcc-linaro/bin/
+ARM_INCLUDES = /usr/bin/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/
+#-I/opt/gcc-arm-none-eabi-9-2020-q2-update/arm-none-eabi/include/ 
+
+MCPU = -mcpu=cortex-a15
+# Compiler to use
+CC= arm-none-eabi-gcc
+AS=arm-none-eabi-as
+LD=arm-none-eabi-ld
+OBJCOP=arm-none-eabi-objcopy
+OBJDUMP=arm-none-eabi-objdump
+
+# Compilation flags
+CFLAGS= -mfloat-abi=softfp -mfpu=vfpv2 -ggdb3
+LDFLAGS  = -lm -lc --specs=nosys.specs -nostartfiles -fno-math-errno -fno-use-linker-plugin
+
+# Source file
+COD=KERNEL.c
+# Asemb file
+ASM=KERNEL.s
+# Objet file
+OBJS=KERNEL.o
+# elf binary file
+ELF=KERNEL.elf
+# binary file
+BIN=KERNEL.bin
+# 
+DIS=KERNEL_dis.s
+DIS_PRE=KERNEL_p.s
+
+# Compilation rules
+all: comp assem link
+#	$(ARM_TOOLCHAIN_DIR)$(CC) --specs=nosys.specs $(MCPU) $(CFLAGS) $(ARM_INCLUDES) -o $(ELF) $(OBJS) #startup.o
+link:
+	$(ARM_TOOLCHAIN_DIR)$(CC) -T link.ld $(OBJS) startup.o -o $(ELF) $(LDFLAGS)
+	$(ARM_TOOLCHAIN_DIR)$(OBJCOP)  -O binary $(ELF) $(BIN)
+	$(ARM_TOOLCHAIN_DIR)$(OBJDUMP) -d $(ELF) > $(DIS)
+
+assem: 
+	$(ARM_TOOLCHAIN_DIR)$(AS) $(MCPU) -o $(OBJS) $(ASM) 
+	$(ARM_TOOLCHAIN_DIR)$(AS) $(MCPU) $(CFLAGS) -g startup.s -o startup.o
+	
+comp: 
+	$(ARM_TOOLCHAIN_DIR)$(CC) $(ARM_INCLUDES) -Wall $(CFLAGS) $(MCPU) -S $(COD)
+	
+# clean files ∗.o and ∗.elf
+clean:
+	rm  $(ELF) $(OBJS)  startup.o $(ASM) $(BIN)
+	
+#Genera el archivo asm completo para obtener funciones (como division)
+asm_gen:
+	$(ARM_TOOLCHAIN_DIR)$(CC) $(ARM_INCLUDES) $(CFLAGS) --specs=nosys.specs $(COD) -o $(ELF)
+	$(ARM_TOOLCHAIN_DIR)$(OBJDUMP) -d $(ELF) > $(DIS_PRE)
