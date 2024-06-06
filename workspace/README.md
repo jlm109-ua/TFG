@@ -42,3 +42,11 @@ This is a directory that contains all the processed data from PARIS. Here you wi
 - Scripts to make this tool work for all the kernels automatically.
 - deadloc ratio results.
 - combined features results.
+
+# UN-FIT
+
+We did **not** make this tool. We used it to do the fault injection campaign on all of our kernels.
+
+# UN-FIT_files
+
+In this directory you will find the results of the campaign, the Makefile template we used to compile all the kernels and the Python script we made to process every kernel automatically.
