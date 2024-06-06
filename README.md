@@ -4,6 +4,10 @@ This is a Bachelor's Final Project made by Juan Llinares Mauri and supervised by
 
 # Objectives
 
+The main objective of this project is to create ML model able to predict the resilience of a given program under the effects of radiation.
+
+This is achieved using the PARIS tool. 
+
 # Usage
 
 Firstly, you will have to mount the container:
@@ -30,19 +34,27 @@ We used some external repositories to achieve our goals.
 ## Dataset
 
 We used the next two repositories as our dataset:
-  1. https://github.com/HPCCS/Computation-Kernel-Dataset.
-  2. https://github.com/TheAlgorithms/C
+  1. [Computation Kernel Dataset](https://github.com/HPCCS/Computation-Kernel-Dataset).
+  2. [TheAlgorithms/C](https://github.com/TheAlgorithms/C).
 
 We had to convert the code from the Computation Kernel Dataset from C++ to C.
 
 ## LLVM-Tracer
 
-This tool can be found here: https://github.com/harvard-acc/LLVM-Tracer. With it, we extracted the dynamic trace of our dataset.
+This tool can be found here: [LLVM-Tracer](https://github.com/harvard-acc/LLVM-Tracer). With it, we extracted the dynamic trace of our dataset.
 
-We used a docker image to install it. This solved basically all environment issues. The image is referenced in the tool's repository.
+We used [this](https://hub.docker.com/repository/docker/xyzsam/gem5-aladdin) docker image to install it. This solved basically all environment issues. The image is also referenced in the tool's repository.
 
 ## gem5-aladdin
 
-This tool is required to run LLVM-Tracer. We didn't touch anything of this tool.
+This tool is required to run LLVM-Tracer. We didn't touch anything of this tool and it came with the installation of the docker image we previously mentioned.
+
+You can find the repository of gem5-aladdin [here](https://github.com/harvard-acc/gem5-aladdin).
 
 ## PARIS
+
+With this tool ([PARIS repository](https://github.com/HPCCS/PARIS)) we processed all the dynamic traces extracted with LLVM-Tracer and got every feature we needed in order to construct the 30 feature vector for the ML model.
+
+## UN-FIT
+
+We used this fault injector to run our fault injection campaign over the dataset we have. It can be found [here](https://github.com/UNPLaS/UN-FIT).
