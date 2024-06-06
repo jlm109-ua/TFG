@@ -36,9 +36,9 @@ def getDynamicTrace():
     errors = []
 
     # Creamos las variables de entorno para el prorgama.
-    C_HOME = BENCHMARK_HOME + "/c"
+    C_HOME = BENCHMARK_HOME + "/testing"
     PLAYGROUND_HOME = "/workspace/LLVM-Tracer/playground"
-    OUTPUT = PLAYGROUND_HOME + "/output"
+    OUTPUT = PLAYGROUND_HOME + "/output_test"
 
     # Si el directorio de salida no existe, lo creamos.
     if not os.path.exists(OUTPUT):
