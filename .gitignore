@@ -12,6 +12,9 @@
 workspace/DATASET/error/
 workspace/LLVM_files/output/
 workspace/LLVM-Tracer/playground/output/
+workspace/UN-FIT/
+workspace/PARIS/
+workspace/gem5-aladdin/
 
 # Ignoramos el core de LLVM-Tracer
 workspace/LLVM-Tracer/playground/core
