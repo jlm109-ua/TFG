@@ -1,0 +1,17 @@
+# Ignoramos archivos de compilación
+*.o
+*.out
+
+# Ignoramos archivos temporales
+*.tmp
+
+# Ignoramos los archivos de VSCode
+*.vscode
+
+# Ignoramos los siguientes directorios:
+workspace/DATASET/error/
+workspace/LLVM_files/output/
+workspace/LLVM-Tracer/playground/output/
+
+# Ignoramos el core de LLVM-Tracer
+workspace/LLVM-Tracer/playground/core

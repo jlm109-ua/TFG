@@ -1,0 +1,9 @@
+[submodule "workspace/LLVM-Tracer"]
+    path = workspace/LLVM-Tracer
+    url = https://github.com/harvard-acc/LLVM-Tracer
+[submodule "workspace/PARIS"]
+	path = workspace/PARIS
+	url = https://github.com/HPCCS/PARIS.git
+[submodule "workspace/UN-FIT"]
+	path = workspace/UN-FIT
+	url = https://github.com/UNPLaS/UN-FIT

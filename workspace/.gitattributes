@@ -1,0 +1,2 @@
+PARIS_files/* filter=lfs diff=lfs merge=lfs -text
+LLVM_files/output/* filter=lfs diff=lfs merge=lfs -text
